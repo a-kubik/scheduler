@@ -1,1 +1,21 @@
+// font
+
+$font-family : Andika;
+
+// colors
+
+$grey: #ddd;
+
+$defaultColor: #2c2f3e;
+$defaultColorLighten: lighten($defaultColor, 5%);
+$defaultColorDarken: darken($defaultColor, 5%);
+
+
+$primaryColor: #ff2118;
+$primaryColorLighten: lighten($primaryColor, 20%);
+$primaryColorDarken: darken($primaryColor, 20%);
+
+$toolbarColor: darken($defaultColorLighten, 2%);
+
+$tableColor: lighten($defaultColor, 20%);
 

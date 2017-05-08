@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+}
+
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-size: 3em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  height: 100%;
+}
+
+p {
+  margin: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: $font-family;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: $grey;
+  background: $defaultColorLighten;
+  font-size: 0.8em;
+}
+
+button {
+  border: 0;
+  color: inherit;
+}
+
+.btn {
+  padding: 10px 20px;
+  display: block;
+  cursor: pointer;
+
+  &:hover {
+
+  }
+
+}
+
+.btn-primary {
+  background: $primaryColor;
+
+  &:hover {
+    background: $primaryColorDarken;
+  }
+}
+
+.sidebar {
+  height: 100%;
+  background: $defaultColor;
+  width: 15%;
+  float: left;
+
+  * {
+    color: $grey;
+  }
+
+  .user-avatar {
+    padding: 10px;
+    text-align: center;
+    padding-top: 20px;
+
+    img {
+      border-radius: 50%;
+      border: 3px solid $grey;
+      width: 90%;
+    }
+
+    .username {
+      margin: 0;
+      font-size: 1.3em;
+    }
+
+  }
+
+  .menu {
+
+    border-top: 2px solid $grey;
+
+    a {
+      display: block;
+      text-align: center;
+      padding: 10px 0px;
+     // transition: background .5s ease;
+
+      &:hover {
+        background: $primaryColor;
+        //transition: background .5s ease;
+      }
+    }
+  }
+}
+
+.content {
+  width: 85%;
+  background: transparent;
+  height: 100%;
+  float: left;
+  padding: 20px;
+}
+
+.user-settings {
+  float: left;
+  background: transparent;
+  height: calc(100% - 60px);
+  width: 100%;
+  padding: 20px 80px;
+}
+
+.dashboard-news-container {
+
+  height: 100%;
+  display: flex;
+  .dashboard-news-block {
+    padding: 20px;
+    background: $defaultColor;
+    flex: 1;
+    height: 100%;
+    margin: 0px 20px;
+    overflow: hidden;
+
+    p {
+      font-size: 1.5em;
+    }
+  }
+
+  .dashboard-list {
+
+    li {
+
+      a {
+        display: block;
+        padding: 5px;
+        &:hover {
+         // transition: background 1s;
+          background: $defaultColorDarken;
+        }
+      }
+    }
+
+  }
+
+}
+
+.section-title {
+  font-size: 1.5em;
+  margin-left: 5%;
+}
+
+.tools-container {
+  margin: 10px 0px;
+  background: $defaultColor;
+  width: auto;
+  .tools {
+    display: flex;
+    text-align: center;
+    li {
+      flex: 1;
+
+      input {
+
+      }
+    }
+  }
+
+}
+
+//todo to put to utilities
+
+.primaryAction {
+  color: $primaryColor;
+}
+
+
+
