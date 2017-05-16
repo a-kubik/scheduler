@@ -25,7 +25,7 @@
 
 
     <div class="content">
-        @yield('inner')
+        @yield('inner-content')
     </div>
 
 
