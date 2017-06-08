@@ -19,6 +19,10 @@
             <li><a href="">Messages</a></li>
             <li><a href="">News</a></li>
         </ul>
+        <form action="/logout" method="post">
+            {{csrf_field()}}
+            <input type="submit" value="Wyloguj">
+        </form>
 
 
     </div>

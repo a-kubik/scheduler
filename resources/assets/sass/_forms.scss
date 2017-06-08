@@ -1,0 +1,73 @@
+.form-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+input, textarea, select {
+  border: 0;
+  outline: 0;
+  padding: 20px;
+  background: darken($defaultColor, 4%);
+  color: $grey;
+  width: 100%;
+
+  &:focus {
+    // border: 1px solid $primaryColorLighten;
+  }
+
+}
+
+.help-block {
+  color: $primaryColorLighten;
+}
+
+.form-group {
+  margin: 20px 0px;
+}
+
+label {
+  display: block;
+  font-size: small;
+  margin-bottom: 2px;
+}
+
+.welcome-form {
+  width: 40%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: $defaultColor;
+  transform: translate(-50%, - 50%);
+  padding: 20px;
+
+  input, textarea {
+    width: 100%;
+  }
+
+  .btn {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+.fields {
+  display: flex;
+  flex-direction: row;
+
+
+  .form-group {
+    flex: 1;
+
+    &:not(:last-child) {
+      margin-right: 5%;
+    }
+  }
+
+
+
+}
+
+
+

@@ -71,7 +71,8 @@ class NotesController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        //
+        $note = Note::findOrFail($id);
+        return view('notes.edit')->with('note', $note);
     }
 
     /**
@@ -82,7 +83,19 @@ class NotesController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|unique:notes|max:255',
+            'content' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('notes/'.$id.'/edit')
+                ->withErrors($validator)
+                ->withInput();
+        }
+        Note::findOrFail($id)->update($request->all());
+        return redirect('/notes');
     }
 
     /**
