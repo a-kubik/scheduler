@@ -1,0 +1,27 @@
+table {
+  width: 100%;
+
+  th {
+    text-align: left;
+    padding-bottom: 10px;
+  }
+
+  tr {
+
+    cursor: pointer;
+
+    &:hover {
+      background: $defaultColorDarken;
+    }
+
+  }
+
+  td {
+    padding: 20px 0px;
+  }
+
+  caption {
+    display: none;
+  }
+
+}

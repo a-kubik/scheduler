@@ -1,4 +1,4 @@
-@extends('common.dashboard')
+@extends('common.menu')
 
 
 

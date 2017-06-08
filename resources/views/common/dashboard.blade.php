@@ -1,38 +1,35 @@
-@extends('layouts.master')
+@extends('common.menu')
 
-@section('content')
+@section('inner-content')
+    <div class="dashboard-news-container">
+        <div class="dashboard-news-block">
+            <p> Recent notes</p>
+            <ul class="dashboard-list">
+                @foreach($notes as $note)
+                    <li><a href="/notes/{{$note->id}}/show"> {{$note->title}}</a></li>
+                @endforeach
 
-    <div class="sidebar">
-        <div class="user-avatar">
-            <img src="/avatar.jpg">
-            <p class="username">Bellissima Antonia</p>
+            </ul>
         </div>
+        <div class="dashboard-news-block">
+            <p> Upcoming tasks</p>
+            <ul class="dashboard-list">
+               {{-- @for ($i = 0; $i < 14; $i++)
+                    <li><a href="#"> Task {{$i}}</a></li>
+                @endfor--}}
 
-        <ul class="menu">
-            {{--@if(Auth::user()->isAdmin())
-                <li><a href="/admin">Admin panel</a></li>
-            @endif--}}
-            <li><a href="{{url('/dashboard')}}">Dashboard</a></li>
-            <li><a href="{{url('/tasks')}}">Tasks</a></li>
-            <li><a href="{{url('/settings')}}">Settings</a></li>
-            <li><a href="{{url('/notes')}}">Notes</a></li>
-            <li><a href="">Messages</a></li>
-            <li><a href="">News</a></li>
-        </ul>
-        <form action="/logout" method="post">
-            {{csrf_field()}}
-            <input type="submit" value="Wyloguj">
-        </form>
+            </ul>
 
+        </div>
+        <div class="dashboard-news-block">
+            <p> Recent messages</p>
+            <ul class="dashboard-list">
+             {{--   @for ($i = 0; $i < 24; $i++)
+                    <li><a href="#"> Message {{$i}}</a></li>
+                @endfor--}}
 
+            </ul>
+        </div>
     </div>
-
-
-    <div class="content">
-        @yield('inner-content')
-    </div>
-
-
-
 
 @endsection

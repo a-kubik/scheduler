@@ -1,4 +1,4 @@
-@extends('common.dashboard')
+@extends('common.menu')
 
 @section('inner-content')
 
@@ -22,10 +22,16 @@
         </tr>
         @foreach($notes as $note)
             <tr>
-                <td>{{$note->title}}</td>
+                <td><a href="notes/{{$note->id}}">{{$note->title}}</a></td>
                 <td>{{$note->created_at}}</td>
                 <td><a href="/notes/{{$note->id}}/edit">Edit</a></td>
-                <td><a href="#">Delete</a></td>
+                <td>
+                    <form action="/notes/{{$note->id}}">
+                        {{csrf_field()}}
+                        {{method_field('DELETE')}}
+                    </form>
+                    <a href="/notes/{{$note->id}}">Delete</a>
+                </td>
             </tr>
         @endforeach
     </table>
