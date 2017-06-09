@@ -41,15 +41,29 @@ class NotesController extends Controller {
 
     public function show($id) {
         $note = Note::findOrFail($id);
+
+        if($note->id != Auth::user()->getAuthIdentifier()) {
+            abort(404);
+        }
+
         return view('notes.show')->with('note', $note);
     }
 
     public function edit($id) {
         $note = Note::findOrFail($id);
+
+        if($note->id != Auth::user()->getAuthIdentifier()) {
+            abort(404);
+        }
+
         return view('notes.edit')->with('note', $note);
     }
 
     public function update(Request $request, $id) {
+
+        if($id != Auth::user()->getAuthIdentifier()) {
+            abort(404);
+        }
 
         $validator = Validator::make($request->all(), [
             'title' => 'required|unique:notes|max:255',
@@ -66,6 +80,10 @@ class NotesController extends Controller {
     }
 
     public function destroy($id) {
+
+        if($id != Auth::user()->getAuthIdentifier()) {
+            abort(404);
+        }
         Note::findOrFail($id)->delete();
         return redirect('/notes');
     }

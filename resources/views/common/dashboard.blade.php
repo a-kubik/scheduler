@@ -14,9 +14,9 @@
         <div class="dashboard-news-block">
             <p> Upcoming tasks</p>
             <ul class="dashboard-list">
-               {{-- @for ($i = 0; $i < 14; $i++)
-                    <li><a href="#"> Task {{$i}}</a></li>
-                @endfor--}}
+                {{-- @for ($i = 0; $i < 14; $i++)
+                     <li><a href="#"> Task {{$i}}</a></li>
+                 @endfor--}}
 
             </ul>
 
@@ -24,9 +24,9 @@
         <div class="dashboard-news-block">
             <p> Recent messages</p>
             <ul class="dashboard-list">
-             {{--   @for ($i = 0; $i < 24; $i++)
-                    <li><a href="#"> Message {{$i}}</a></li>
-                @endfor--}}
+                {{--   @for ($i = 0; $i < 24; $i++)
+                       <li><a href="#"> Message {{$i}}</a></li>
+                   @endfor--}}
 
             </ul>
         </div>
