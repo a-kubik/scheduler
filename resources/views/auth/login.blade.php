@@ -2,11 +2,15 @@
 
 @section('content')
 
+    <div class="navbar">
+        <h1>Scheduler</h1>
+        <span>Your time. Our duty.</span>
+    </div>
 
     <div class="welcome-form">
-        <h1>Log in</h1>
+        <h2>Log in</h2>
 
-        <form role="form" method="POST" action="{{ url('/login') }}">
+        <form role="form" method="POST" action="{{ url('/login') }}" novalidate>
             {{ csrf_field() }}
 
             @if ($errors->has('email'))
@@ -14,18 +18,21 @@
                     <strong>{{ $errors->first('email') }}</strong>
                 </span>
             @endif
-            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required
-                   autofocus>
-            <label for="password" class="col-md-4 control-label">Password</label>
-            <input id="password" type="password" class="form-control" name="password" required>
-
+            <div class="form-group">
+                <label for="email">E-Mail Address</label>
+                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required
+                       autofocus>
+            </div>
             @if ($errors->has('password'))
                 <span class="help-block">
                     <strong>{{ $errors->first('password') }}</strong>
                 </span>
             @endif
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" type="password" class="form-control" name="password" required>
+            </div>
+
 
 
             <button type="submit" class="btn btn-primary">

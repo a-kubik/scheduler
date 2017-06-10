@@ -2,7 +2,6 @@
   box-sizing: border-box;
 }
 
-
 ul {
   list-style: none;
   margin: 0;
@@ -38,6 +37,31 @@ body {
   color: $grey;
   background: $defaultColorLighten;
   font-size: 0.8em;
+
+  @include mobile() {
+    height: auto;
+    overflow: auto;
+  }
+}
+
+
+.navbar {
+  height: 60px;
+  background-color: $defaultColorDarken;
+  padding: 10px 20px;
+
+  @include mobile() {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  span {
+    font-size: 0.7em;
+  }
+
 }
 
 button {
@@ -100,7 +124,7 @@ button {
       display: block;
       text-align: center;
       padding: 10px 0px;
-     // transition: background .5s ease;
+      // transition: background .5s ease;
 
       &:hover {
         background: $primaryColor;
@@ -151,7 +175,7 @@ button {
         display: block;
         padding: 5px;
         &:hover {
-         // transition: background 1s;
+          // transition: background 1s;
           background: $defaultColorDarken;
         }
       }

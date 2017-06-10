@@ -1,13 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Andika:300,400,600);
 @import "variables";
+@import "breakpoints.scss";
+@import "mixins.scss";
 @import "normilize";
 @import "main";
 @import "forms";
 @import "tables";
 
-body {
-  font-family: Andika;
-}
+
 
 
 
