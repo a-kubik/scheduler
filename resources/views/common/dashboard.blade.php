@@ -14,9 +14,9 @@
         <div class="dashboard-news-block">
             <p> Upcoming tasks</p>
             <ul class="dashboard-list">
-                {{-- @for ($i = 0; $i < 14; $i++)
-                     <li><a href="#"> Task {{$i}}</a></li>
-                 @endfor--}}
+                @foreach($tasks as $task)
+                    <li><a href="/tasks/{{$task->id}}">({{$task->startDate}}) {{$task->title}}</a></li>
+                @endforeach
 
             </ul>
 

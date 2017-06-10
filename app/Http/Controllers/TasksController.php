@@ -23,7 +23,7 @@ class TasksController extends Controller {
 
 
             $validator = Validator::make($request->all(), [
-                'title' => 'required|unique:tasks|max:255',
+                'title' => 'required|max:255',
                 'startDate' => 'required'
             ]);
             if ($validator->fails()) {
@@ -34,24 +34,22 @@ class TasksController extends Controller {
 
             $task = $request->all();
             $task['user_id'] = Auth::user()->getAuthIdentifier();
-            $task['description'] = "Dupa";
-            $task['time'] = "12:00";
-            $task['duration'] = 1;
             $task['category_id'] = 1;
             Task::create($task);
 
             return redirect('/tasks');
         }
 
-       /* public function show($id) {
-            $note = Note::findOrFail($id);
-
-            if($note->id != Auth::user()->getAuthIdentifier()) {
+        public function show($id) {
+            $task = Task::findOrFail($id);
+            if($task->user_id != Auth::user()->getAuthIdentifier()) {
                 abort(404);
             }
 
-            return view('notes.show')->with('note', $note);
+            return view('tasks.show')->with('task', $task);
         }
+
+    /*
 
         public function edit($id) {
             $note = Note::findOrFail($id);
