@@ -49,17 +49,19 @@ class TasksController extends Controller {
             return view('tasks.show')->with('task', $task);
         }
 
-    /*
+
 
         public function edit($id) {
-            $note = Note::findOrFail($id);
+            $task = Task::findOrFail($id);
 
-            if($note->id != Auth::user()->getAuthIdentifier()) {
+            if($task->user_id != Auth::user()->getAuthIdentifier()) {
                 abort(404);
             }
 
-            return view('notes.edit')->with('note', $note);
+            return view('tasks.edit')->with('task', $task);
         }
+
+    /*
 
         public function update(Request $request, $id) {
 

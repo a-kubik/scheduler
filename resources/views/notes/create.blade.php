@@ -4,6 +4,8 @@
 
 @section('inner-content')
 
+    <h2 class="section-title">Creating a new note</h2>
+
     <div class="form-container">
         <form action="/notes" method="post">
             {{csrf_field()}}

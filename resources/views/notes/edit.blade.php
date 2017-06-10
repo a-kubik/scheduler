@@ -4,7 +4,7 @@
 
 @section('inner-content')
 
-
+    <h2 class="section-title">Editing note "{{$note->title}}"</h2>
     <ul>
         @foreach($errors->all() as $error)
             <li> {{ $error }}</li>

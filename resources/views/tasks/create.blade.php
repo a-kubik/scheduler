@@ -10,7 +10,7 @@
     </ul>
         <form action="/tasks" method="post">
             {{csrf_field()}}
-            <div class="two fields">
+            <div class="fields">
                 <div class="form-group">
                     <label>Task name</label>
                     <input type="text" name="title">

@@ -42,7 +42,7 @@ class NotesController extends Controller {
     public function show($id) {
         $note = Note::findOrFail($id);
 
-        if($note->id != Auth::user()->getAuthIdentifier()) {
+        if($note->user_id != Auth::user()->getAuthIdentifier()) {
             abort(404);
         }
 
@@ -52,7 +52,7 @@ class NotesController extends Controller {
     public function edit($id) {
         $note = Note::findOrFail($id);
 
-        if($note->id != Auth::user()->getAuthIdentifier()) {
+        if($note->user_id != Auth::user()->getAuthIdentifier()) {
             abort(404);
         }
 
