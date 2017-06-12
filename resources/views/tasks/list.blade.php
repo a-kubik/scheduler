@@ -21,20 +21,13 @@
             <th></th>
             <th></th>
         </tr>
-        @foreach($tasks as $task)
-            <tr>
-                <td><a href="tasks/{{$task->id}}">{{$task->title}}</a></td>
-                <td>{{$task->duration}}</td>
-                <td>{{$task->startDate}}</td>
-                <td><a href="/tasks/{{$task->id}}/edit">Edit</a></td>
-                <td>
-                    <form action="/task/{{$task->id}}">
-                        {{csrf_field()}}
-                        {{method_field('DELETE')}}
-                    </form>
-                    <a href="/tasks/{{$task->id}}">Delete</a>
-                </td>
-            </tr>
+        @foreach($tasksCollection as $tasksForDay)
+            <p>{{$tasksForDay[0]->startDate}}</p>
+            <ul>
+                @foreach($tasksForDay as $task)
+                    <li>{{$task->title}} -- Godzina rozpoczecia:{{$task->time}}</li>
+                @endforeach
+            </ul>
         @endforeach
     </table>
 

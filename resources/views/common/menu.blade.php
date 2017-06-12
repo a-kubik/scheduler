@@ -5,7 +5,7 @@
     <div class="sidebar">
         <div class="user-avatar">
             <img src="/avatar.jpg">
-            <p class="username">Bellissima Antonia</p>
+            <p class="username">{{Auth::user()->name}}</p>
         </div>
 
         <ul class="menu">
@@ -17,7 +17,9 @@
             <li><a href="{{url('/settings')}}">Settings</a></li>
             <li><a href="{{url('/notes')}}">Notes</a></li>
             <li><a href="">Messages</a></li>
-            <li><a href="">News</a></li>
+            @if(Auth::user()->isAdmin())
+                <li><a href="">News</a></li>
+            @endif
         </ul>
         <form action="/logout" method="post">
             {{csrf_field()}}

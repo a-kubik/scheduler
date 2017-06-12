@@ -6,13 +6,22 @@ use App\Task;
 use Auth;
 use Illuminate\Http\Request;
 use Validator;
+use Illuminate\Support\Facades\DB;
 
 class TasksController extends Controller {
 
 
         public function index() {
-            $tasks = Task::where('user_id', Auth::user()->getAuthIdentifier())->get();
-            return view('tasks.list')->with('tasks', $tasks);
+            $tasks = array();
+            $startDates = DB::table('tasks')->groupBy('startDate')->orderBy('startDate')->pluck('startDate')->take(3);
+
+            foreach ($startDates as $index => $date) {
+                $tasks[$index] = Task::where([['user_id', Auth::user()->getAuthIdentifier()],['startDate', $date]])->orderBy('time')->get();
+            };
+
+            return view('tasks.list')->with('tasksCollection', $tasks);
+
+
         }
 
         public function create() {

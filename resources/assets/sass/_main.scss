@@ -215,8 +215,31 @@ button {
 
 .section-title {
   font-size: 2em;
-  border-bottom: 1px solid $darkgrey;
   padding: 20px 0;
+}
+
+.article {
+
+  padding: 20px 0;
+  font-size: 1.2em;
+  border-top: 1px solid $darkgrey;
+  border-bottom: 1px solid $darkgrey;
+  margin-bottom: 10px;
+
+  &-content {
+    text-indent: 0.5rem;
+  }
+
+  &-info-container {
+    margin-bottom: 10px;
+  }
+
+  &-updated, &-created {
+    font-style: italic;
+    display: block;
+    font-size: 0.8em;
+  }
+
 }
 
 

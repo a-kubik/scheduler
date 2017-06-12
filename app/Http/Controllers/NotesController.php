@@ -6,13 +6,13 @@ use App\Note;
 use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class NotesController extends Controller {
 
 
     public function index() {
         $notes = Note::where('user_id', Auth::user()->getAuthIdentifier())->get();
-
         return view('notes.list')->with('notes', $notes);
     }
 
@@ -80,11 +80,12 @@ class NotesController extends Controller {
     }
 
     public function destroy($id) {
-
-        if($id != Auth::user()->getAuthIdentifier()) {
+        $note = Note::findOrFail($id);
+        if($note->user_id != Auth::user()->getAuthIdentifier()) {
             abort(404);
         }
-        Note::findOrFail($id)->delete();
+        $note->delete();
+
         return redirect('/notes');
     }
 }

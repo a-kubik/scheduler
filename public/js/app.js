@@ -78,9 +78,26 @@ $(document).ready(function () {
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
+var $ = __webpack_require__(3);
 
+var forms = {
+
+    submitDeleteForm: function submitDeleteForm(btn) {
+
+        btn.siblings("form").submit();
+    }
+
+};
+
+$(document).ready(function () {
+
+    $('.deleteBtn').click(function (e) {
+        e.preventDefault();
+        forms.submitDeleteForm($(this));
+    });
+});
 
 /***/ }),
 /* 2 */
