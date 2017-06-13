@@ -70,45 +70,6 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var $ = __webpack_require__(3);
-
-$(document).ready(function () {
-    console.log("Hi");
-});
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var $ = __webpack_require__(3);
-
-var forms = {
-
-    submitDeleteForm: function submitDeleteForm(btn) {
-
-        btn.siblings("form").submit();
-    }
-
-};
-
-$(document).ready(function () {
-
-    $('.deleteBtn').click(function (e) {
-        e.preventDefault();
-        forms.submitDeleteForm($(this));
-    });
-});
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * jQuery JavaScript Library v3.2.1
  * https://jquery.com/
@@ -10366,12 +10327,51 @@ return jQuery;
 
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $ = __webpack_require__(0);
+
+$(document).ready(function () {
+    console.log("Hi");
+});
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $ = __webpack_require__(0);
+
+var forms = {
+
+    submitDeleteForm: function submitDeleteForm(btn) {
+
+        btn.siblings("form").submit();
+    }
+
+};
+
+$(document).ready(function () {
+
+    $('.deleteBtn').click(function (e) {
+        e.preventDefault();
+        forms.submitDeleteForm($(this));
+    });
+});
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(0);
 __webpack_require__(1);
-module.exports = __webpack_require__(2);
+__webpack_require__(2);
+module.exports = __webpack_require__(3);
 
 
 /***/ })

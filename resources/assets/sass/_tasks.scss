@@ -1,0 +1,37 @@
+.task {
+
+  &-priority {
+
+    &-low {
+      color: $taskLowPriorityColor;
+    }
+
+    &-normal {
+      color: $taskNormalPriorityColor;
+    }
+
+    &-high {
+      color: $taskHighPriorityColor;
+    }
+
+  }
+
+  &-date {
+    font-size: 1.5em;
+  }
+
+  &-list {
+
+    &-item {
+
+      padding: 8px 0;
+
+    }
+
+  }
+
+  &-day-list {
+    margin: 20px 0;
+  }
+
+}

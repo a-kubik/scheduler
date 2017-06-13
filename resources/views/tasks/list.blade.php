@@ -12,23 +12,21 @@
             </li>
         </ul>
     </div>
-    <table class="table table-clickable">
-        <caption>Tasks</caption>
-        <tr>
-            <th>Title</th>
-            <th></th>
-            <th>Start date</th>
-            <th></th>
-            <th></th>
-        </tr>
-        @foreach($tasksCollection as $tasksForDay)
-            <p>{{$tasksForDay[0]->startDate}}</p>
-            <ul>
+    @foreach($tasksCollection as $tasksForDay)
+        <div class="task-day-list">
+            <p class="task-date">{{$tasksForDay[0]->startDate}}</p>
+            <ul class="task-list">
                 @foreach($tasksForDay as $task)
-                    <li>{{$task->title}} -- Godzina rozpoczecia:{{$task->time}}</li>
+                    <li class="task-list-item task-priority-{{Illuminate\Support\Str::lower($task->priority)}}">
+                        <a href="/tasks/{{$task->id}}">
+                        {{$task->time}}
+                        - <strong>{{$task->title}}</strong> for {{$task->duration}} hours.
+                        </a>
+                    </li>
                 @endforeach
             </ul>
-        @endforeach
-    </table>
+        </div>
+    @endforeach
+
 
 @endsection

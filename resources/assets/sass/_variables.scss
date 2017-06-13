@@ -20,3 +20,7 @@ $toolbarColor: darken($defaultColorLighten, 2%);
 
 $tableColor: lighten($defaultColor, 20%);
 
+$taskLowPriorityColor: #1FFF59;
+$taskNormalPriorityColor: #2963ff;
+$taskHighPriorityColor: $primaryColorLighten;
+
