@@ -22,7 +22,7 @@ class NotesController extends Controller {
 
     public function store(Request $request) {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|unique:notes|max:255',
+            'title' => 'required|unique:notes,title,'.Auth::user()->getAuthIdentifier().',user_id,user_id,'.Auth::user()->getAuthIdentifier(),
             'content' => 'required',
         ]);
 
@@ -66,7 +66,7 @@ class NotesController extends Controller {
         }
 
         $validator = Validator::make($request->all(), [
-            'title' => 'required|unique:notes|max:255',
+            'title' => 'required|unique:notes,title,'.Auth::user()->getAuthIdentifier().',user_id|max:255',
             'content' => 'required',
         ]);
 

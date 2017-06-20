@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\DB;
@@ -12,13 +13,16 @@ class TasksController extends Controller {
 
 
         public function index() {
+
+            $today = Carbon::now()->toDateString();
+
             $tasks = array();
-            $startDates = DB::table('tasks')->groupBy('startDate')->orderBy('startDate')->pluck('startDate')->take(3);
+            $startDates = DB::table('tasks')->where('startDate','>=',$today)->groupBy('startDate')->orderBy('startDate')->pluck('startDate')->take(3);
 
             foreach ($startDates as $index => $date) {
                 $tasks[$index] = Task::where([['user_id', Auth::user()->getAuthIdentifier()],['startDate', $date]])->orderBy('time')->get();
             };
-
+            //dd($tasks[0]);
             return view('tasks.list')->with('tasksCollection', $tasks);
 
 

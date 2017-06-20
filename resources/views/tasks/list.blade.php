@@ -14,7 +14,9 @@
     </div>
     @foreach($tasksCollection as $tasksForDay)
         <div class="task-day-list">
+            @if(isset($tasksForDay[0]))
             <p class="task-date">{{$tasksForDay[0]->startDate}}</p>
+            @endif
             <ul class="task-list">
                 @foreach($tasksForDay as $task)
                     <li class="task-list-item task-priority-{{Illuminate\Support\Str::lower($task->priority)}}">

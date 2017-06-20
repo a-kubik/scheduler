@@ -33,7 +33,7 @@
             <div class="fields">
                 <div class="form-group">
                     <label>Start date</label>
-                    <input id="datepicker" type="datetime" name="startDate">
+                    <input id="datepicker" type="datetime" name="startDate" value="{{\Carbon\Carbon::now()->toDateString()}}">
                 </div>
                 <div class="form-group">
                     <label>Start time</label>

@@ -18,9 +18,6 @@ input, textarea, select {
   color: $primaryColorLighten;
 }
 
-.form-group {
-  margin: 20px 0px;
-}
 
 label {
   display: block;
@@ -80,6 +77,15 @@ label {
 
     &:not(:last-child) {
       margin-right: 5%;
+    }
+  }
+
+  @include mobile() {
+    display: block;
+
+    .form-group {
+      margin: 10px auto;
+      width: 100%;
     }
   }
 
