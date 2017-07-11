@@ -10333,7 +10333,7 @@ return jQuery;
 var $ = __webpack_require__(0);
 
 $(document).ready(function () {
-    console.log("Hi");
+    $('#datepicker').datepicker();
 });
 
 /***/ }),
@@ -10347,8 +10347,16 @@ var forms = {
     submitDeleteForm: function submitDeleteForm(btn) {
 
         btn.siblings("form").submit();
-    }
+    },
 
+    fillSidebar: function fillSidebar(value) {
+        document.getElementsByClassName('sidebar')[0].style.backgroundColor = value;
+    },
+
+    fillSidebarWithDefault: function fillSidebarWithDefault() {
+        document.getElementsByClassName('sidebar')[0].style.backgroundColor = '#2c2f3e';
+        document.getElementById('sidebar-color').value = '#2c2f3e';
+    }
 };
 
 $(document).ready(function () {
@@ -10356,6 +10364,14 @@ $(document).ready(function () {
     $('.deleteBtn').click(function (e) {
         e.preventDefault();
         forms.submitDeleteForm($(this));
+    });
+
+    $('#sidebar-color').change(function () {
+        forms.fillSidebar($(this).val());
+    });
+
+    $('.default-color-btn').click(function () {
+        forms.fillSidebarWithDefault();
     });
 });
 

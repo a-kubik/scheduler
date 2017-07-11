@@ -20,6 +20,14 @@
                     <input type="text" name="title" value="{{$task->title}}">
                 </div>
                 <div class="form-group">
+                    <label>Category</label>
+                    <select name="category">
+                        <option value="1">Zakupy</option>
+                        <option value="2">Rozrywka</option>
+                        <option value="3">Praca</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label>Priority</label>
                     <select name="priority">
                         <option value="1">Low</option>
@@ -29,10 +37,6 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label>Task description</label>
-                <textarea name="description">{{$task->description}}</textarea>
-            </div>
 
             <div class="fields">
                 <div class="form-group">
@@ -43,7 +47,7 @@
                     <label>Start time</label>
                     <select name="time">
                         @for($i=1;$i<=24;$i++)
-                            <option  @if($task->time == $i.":00") selected @endif value="{{$i}}:00">{{$i}}:00</option>
+                            <option @if($task->time == $i.":00") selected @endif value="{{$i}}:00">{{$i}}:00</option>
                         @endfor
                     </select>
                 </div>
@@ -52,6 +56,11 @@
                     <label>Duration</label>
                     <input type="number" name="duration" value="{{$task->duration}}">
                 </div>
+            </div>
+
+            <div class="form-group">
+                <label>Task description</label>
+                <textarea name="description">{{$task->description}}</textarea>
             </div>
 
 

@@ -5,6 +5,11 @@
     <div class="navbar">
         <h1>Scheduler</h1>
         <span>Your time. Our duty.</span>
+        @if(Config::get('app.locale') == 'en')
+            <a href="locale/pl"> PL </a>
+        @elseif(Config::get('app.locale') == 'pl')
+            <a href="locale/en"> EN </a>
+        @endif
     </div>
 
     <div class="welcome-form">
@@ -32,7 +37,6 @@
                 <label for="password">Password</label>
                 <input id="password" type="password" class="form-control" name="password" required>
             </div>
-
 
 
             <button type="submit" class="btn btn-primary">

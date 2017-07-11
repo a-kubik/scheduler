@@ -17,10 +17,10 @@ class TasksController extends Controller {
             $today = Carbon::now()->toDateString();
 
             $tasks = array();
-            $startDates = DB::table('tasks')->where('startDate','>=',$today)->groupBy('startDate')->orderBy('startDate')->pluck('startDate')->take(3);
+            $startDates = DB::table('tasks')->where('user_id',Auth::user()->getAuthIdentifier())->where('startDate','>=',$today)->groupBy('startDate')->orderBy('startDate')->pluck('startDate')->take(3);
 
             foreach ($startDates as $index => $date) {
-                $tasks[$index] = Task::where([['user_id', Auth::user()->getAuthIdentifier()],['startDate', $date]])->orderBy('time')->get();
+                $tasks[$index] = Task::where('startDate', $date)->orderBy('time')->get();
             };
             //dd($tasks[0]);
             return view('tasks.list')->with('tasksCollection', $tasks);
@@ -37,6 +37,7 @@ class TasksController extends Controller {
 
             $validator = Validator::make($request->all(), [
                 'title' => 'required|max:255',
+                'description' => 'required',
                 'startDate' => 'required'
             ]);
             if ($validator->fails()) {
@@ -74,35 +75,32 @@ class TasksController extends Controller {
             return view('tasks.edit')->with('task', $task);
         }
 
-    /*
+
 
         public function update(Request $request, $id) {
 
-            if($id != Auth::user()->getAuthIdentifier()) {
-                abort(404);
-            }
-
             $validator = Validator::make($request->all(), [
-                'title' => 'required|unique:notes|max:255',
-                'content' => 'required',
+                'title' => 'required|max:255',
+                'description' => 'required',
+                'startDate' => 'required'
             ]);
 
             if ($validator->fails()) {
-                return redirect('notes/'.$id.'/edit')
+                return redirect('tasks/'.$id.'/edit')
                     ->withErrors($validator)
                     ->withInput();
             }
-            Note::findOrFail($id)->update($request->all());
-            return redirect('/notes');
+            Task::findOrFail($id)->update($request->all());
+            return redirect('/tasks');
         }
+    /*
+            public function destroy($id) {
 
-        public function destroy($id) {
-
-            if($id != Auth::user()->getAuthIdentifier()) {
-                abort(404);
-            }
-            Note::findOrFail($id)->delete();
-            return redirect('/notes');
-        }*/
+                if($id != Auth::user()->getAuthIdentifier()) {
+                    abort(404);
+                }
+                Note::findOrFail($id)->delete();
+                return redirect('/notes');
+            }*/
 
 }

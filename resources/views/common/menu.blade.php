@@ -2,9 +2,11 @@
 
 @section('content')
 
-    <div class="sidebar">
+    <div class="sidebar" style="background-color:{{Auth::user()->sidebar_color}}">
         <div class="user-avatar">
-            <img src="/avatar.jpg">
+            <img src="{{ asset(Auth::user()->photo)}}">
+
+
             <p class="username">{{Auth::user()->name}}</p>
         </div>
 
